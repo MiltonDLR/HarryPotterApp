@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarryPotterApp.Views.CharacterPage"
+             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:CharacterViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style Class="Personajes" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="Caption"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <Label Text="Nombre:"/>
+            <Label Text="{Binding Name}"/>
+            <Label Text="Alias:"/>
+                <Label Text="{Binding Alias}"/>
+            <Label Text="School:"/>
+                <Label Text="{Binding School}"/>
+            <Label Text="Role:"/>
+                <Label Text="{Binding Role}"/>
+            <Label Text="House:"/>
+                <Label Text="{Binding House}"/>
+            <Label Text="Wand:"/>
+                <Label Text="{Binding Wand}"/>
+            <Label Text="Patronus:"/>
+                <Label Text="{Binding Patronus}"/>
+            <Label Text="Boggart:"/>
+                <Label Text="{Binding Boggart}"/>
+            <Label Text="MinistryOfMagic:"/>
+                <Switch IsToggled="{Binding MinistryOfMagic}"/>
+            <Label Text="OrderOfThePhoenix:"/>
+                <Switch IsToggled="{Binding OrderOfThePhoenix}"/>
+            <Label Text="DumbledoresArmy:"/>
+                <Switch IsToggled="{Binding DumbledoresArmy}"/>
+            <Label Text="DeathEater:"/>
+                <Switch IsToggled="{Binding DeathEater}"/>
+            <Label Text="BloodStatus:"/>
+                <Label Text="{Binding BloodStatus}"/>
+            <Label Text="Species:"/>
+            <Label Text="{Binding Species}"/>
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

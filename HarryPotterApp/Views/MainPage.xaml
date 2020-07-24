@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             mc:Ignorable="d"
+             ControlTemplate="{StaticResource Cssbackground}"
+             x:Class="HarryPotterApp.MainPage"
+             Title="Menu Principal">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate
+                x:Key="Cssbackground">
+                <Grid>
+                    <magic:GradientView VerticalOptions="FillAndExpand">
+                        <magic:GradientView.GradientSource>
+                            <magic:CssGradientSource>
+                                <x:String>
+                                    <![CDATA[linear-gradient(0deg, rgb(94, 5, 4),rgb(253, 19, 61))]]>
+                                </x:String>
+                            </magic:CssGradientSource>
+                        </magic:GradientView.GradientSource>
+                    </magic:GradientView>
+                    <ContentPresenter/>
+                </Grid>
+            </ControlTemplate>
+            <Style TargetType="Button" Class="BS">
+                <Setter Property="ContentLayout" Value="Left,5"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="BackgroundColor" Value="#e6d7bd"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="2"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <Label Padding="10" Text="HarryPotterApp" TextColor="White" FontSize="40" FontAttributes="Italic" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"/>
+            <Label Padding="10" Text="SELECCIONA UNA ACTIVIDAD" TextColor="Black" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                <Button StyleClass="BS" Text="Sombrero Seleccionador" ImageSource="ic_sombrero.png" Clicked="Button_Clicked"/>
+            <Button StyleClass="BS" Text="Personajes" ImageSource="ic_personajes.png" Clicked="Button_Clicked_1"/>
+                <Button StyleClass="BS" Text="Hechizos" ImageSource="ic_hechizo.png" Clicked="Button_Clicked_3"/>
+                <Button StyleClass="BS" Text="Casas de Hogwarts" ImageSource="ic_casas.png" Clicked="Button_Clicked_2"/>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

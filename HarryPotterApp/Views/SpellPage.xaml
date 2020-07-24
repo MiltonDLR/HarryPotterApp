@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarryPotterApp.Views.SpellPage"
+             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:SpellViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style Class="Personajes" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="Caption"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Hechizo:"/>
+                <Label Text="{Binding Spell}"/>
+                <Label Text="Tipo:"/>
+                <Label Text="{Binding Type}"/>
+                <Label Text="Efecto:"/>
+                <Label Text="{Binding Effect}"/>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

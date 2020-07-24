@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarryPotterApp.Views.CharacterListPage"
+             xmlns:viewModel="clr-namespace:HarryPotterApp.ViewModels"
+             Title="Personajes">
+    
+    <ContentPage.BindingContext>
+        <viewModel:CharacterViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style Class="SBar" TargetType="SearchBar">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="#e6d7bd"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="CancelButtonColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="FontAttributes" Value="Italic"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style Class="Texto" TargetType="Label">
+                <Setter Property="TextColor" Value="#222222"></Setter>
+                <Setter Property="FontSize" Value="Default"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+
+                <CollectionView x:Name="CharactersView" ItemsSource="{Binding Characters}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#732300" Padding="5">
+                                <StackLayout Spacing="0" BackgroundColor="#fffff0" Orientation="Vertical" VerticalOptions="Center">
+                                    <Label Text="{Binding name}" StyleClass="Texto" FontAttributes="Bold"/>
+                                    <Label Text="{Binding alias}" StyleClass="Texto"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

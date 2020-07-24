@@ -1,0 +1,1 @@
+C:\Users\Javier\Documents\Laboratorios Xamarin FIME\HarryPotterApp\HarryPotterApp.UWP\HarryPotterApp.UWP.csproj;x86

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HarryPotterApp.Views.HousesPage">
+    <ContentPage.Content>
+        <Grid Padding="0" BackgroundColor="Transparent" RowSpacing="25" ColumnSpacing="25" VerticalOptions="Center" HorizontalOptions="Center">
+
+            <!--Definicion de Filas y Columnas-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Boton a Sorting Hat (Sorteo de Sombrero) -->
+            <Button Grid.Row="0" Grid.Column="0" CornerRadius="10" Text="Logo de Casa G" BackgroundColor="Red" />
+
+            <!-- Boton a Characters (Personajes) -->
+            <Button Grid.Row="0" Grid.Column="1" CornerRadius="10" Text="Logo de Casa S" BackgroundColor="Green"/>
+
+            <!-- Boton de Casas -->
+            <Button Grid.Row="1" Grid.Column="0" CornerRadius="10" Text="Logo de Casa H" BackgroundColor="Yellow"/>
+
+            <!-- Boton de Hechizos -->
+            <Button Grid.Row="1" Grid.Column="1" CornerRadius="10" Text="Logo de Casa R" BackgroundColor="Blue"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
