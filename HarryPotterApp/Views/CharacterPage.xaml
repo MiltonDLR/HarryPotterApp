@@ -5,52 +5,120 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HarryPotterApp.Views.CharacterPage"
-             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels">
+             ControlTemplate="{StaticResource Cssbackground}"
+             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels" 
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             Title="Datos del Personaje">
     <ContentPage.BindingContext>
         <viewModels:CharacterViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <ControlTemplate
+                x:Key="Cssbackground">
+                <Grid>
+                    <magic:GradientView VerticalOptions="FillAndExpand">
+                        <magic:GradientView.GradientSource>
+                            <magic:CssGradientSource>
+                                <x:String>
+                                    <![CDATA[linear-gradient(0deg, rgb(94, 5, 4),rgb(253, 19, 61))]]>
+                                </x:String>
+                            </magic:CssGradientSource>
+                        </magic:GradientView.GradientSource>
+                    </magic:GradientView>
+                    <ContentPresenter/>
+                </Grid>
+            </ControlTemplate>
             <Style Class="Personajes" TargetType="Label">
                 <Setter Property="TextColor" Value="Black"></Setter>
                 <Setter Property="FontSize" Value="Caption"></Setter>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-            <Label Text="Nombre:"/>
-            <Label Text="{Binding Name}"/>
-            <Label Text="Alias:"/>
-                <Label Text="{Binding Alias}"/>
-            <Label Text="School:"/>
-                <Label Text="{Binding School}"/>
-            <Label Text="Role:"/>
-                <Label Text="{Binding Role}"/>
-            <Label Text="House:"/>
-                <Label Text="{Binding House}"/>
-            <Label Text="Wand:"/>
-                <Label Text="{Binding Wand}"/>
-            <Label Text="Patronus:"/>
-                <Label Text="{Binding Patronus}"/>
-            <Label Text="Boggart:"/>
-                <Label Text="{Binding Boggart}"/>
-            <Label Text="MinistryOfMagic:"/>
-                <Switch IsToggled="{Binding MinistryOfMagic}"/>
-            <Label Text="OrderOfThePhoenix:"/>
-                <Switch IsToggled="{Binding OrderOfThePhoenix}"/>
-            <Label Text="DumbledoresArmy:"/>
-                <Switch IsToggled="{Binding DumbledoresArmy}"/>
-            <Label Text="DeathEater:"/>
-                <Switch IsToggled="{Binding DeathEater}"/>
-            <Label Text="BloodStatus:"/>
-                <Label Text="{Binding BloodStatus}"/>
-            <Label Text="Species:"/>
-            <Label Text="{Binding Species}"/>
-        </StackLayout>
-    </ScrollView>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0">
+                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Subtitle"/>
+            </Frame>
+
+            <ScrollView Grid.Row="1">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Nombre:"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Alias:"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Alias}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Rol:"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Role}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Escuela:"/>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding School}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Casa:"/>
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding House}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Barita:"/>
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding Wand}"/>
+
+                    <Label Grid.Row="6" Grid.Column="0" Text="Patronus:"/>
+                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding Patronus}"/>
+
+                    <Label Grid.Row="7" Grid.Column="0" Text="Boggart:"/>
+                    <Label Grid.Row="7" Grid.Column="1" Text="{Binding Boggart}"/>
+
+                    <Label Grid.Row="8" Grid.Column="0" Text="Ministerio de Magia:"/>
+                    <Switch Grid.Row="8" Grid.Column="1" IsToggled="{Binding MinistryOfMagic}"/>
+
+                    <Label Grid.Row="9" Grid.Column="0" Text="Orden del Fénix:"/>
+                    <Switch Grid.Row="9" Grid.Column="1" IsToggled="{Binding OrderOfThePhoenix}"/>
+
+                    <Label Grid.Row="10" Grid.Column="0" Text="Ejército de Dumbledore:"/>
+                    <Switch Grid.Row="10" Grid.Column="1" IsToggled="{Binding DumbledoresArmy}"/>
+
+                    <Label Grid.Row="11" Grid.Column="0" Text="Mortífago:"/>
+                    <Switch Grid.Row="11" Grid.Column="1" IsToggled="{Binding DeathEater}"/>
+
+                    <Label Grid.Row="12" Grid.Column="0" Text="Estatus de sangre:"/>
+                    <Label Grid.Row="12" Grid.Column="1" Text="{Binding BloodStatus}"/>
+
+                    <Label Grid.Row="13" Grid.Column="0" Text="Especie:"/>
+                    <Label Grid.Row="13" Grid.Column="1" Text="{Binding Species}"/>
+
+                </Grid>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

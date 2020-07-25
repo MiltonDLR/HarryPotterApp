@@ -5,12 +5,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HarryPotterApp.Views.SpellPage"
-             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels">
+             ControlTemplate="{StaticResource Cssbackground}"
+             Title="Hechizo"
+             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels" 
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients">
+    
     <ContentPage.BindingContext>
         <viewModels:SpellViewModel/>
     </ContentPage.BindingContext>
+    
+    
     <ContentPage.Resources>
         <ResourceDictionary>
+            <ControlTemplate
+                x:Key="Cssbackground">
+                <Grid>
+                    <magic:GradientView VerticalOptions="FillAndExpand">
+                        <magic:GradientView.GradientSource>
+                            <magic:CssGradientSource>
+                                <x:String>
+                                    <![CDATA[linear-gradient(0deg, rgb(82,4,94),rgb(253,19,197))]]>
+                                </x:String>
+                            </magic:CssGradientSource>
+                        </magic:GradientView.GradientSource>
+                    </magic:GradientView>
+                    <ContentPresenter/>
+                </Grid>
+            </ControlTemplate>
             <Style Class="Personajes" TargetType="Label">
                 <Setter Property="TextColor" Value="Black"></Setter>
                 <Setter Property="FontSize" Value="Caption"></Setter>
@@ -19,16 +40,54 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Label Text="Hechizo:"/>
-                <Label Text="{Binding Spell}"/>
-                <Label Text="Tipo:"/>
-                <Label Text="{Binding Type}"/>
-                <Label Text="Efecto:"/>
-                <Label Text="{Binding Effect}"/>
-                
-            </StackLayout>
-        </ScrollView>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0">
+                <Label Text="{Binding Spell}" FontSize="Subtitle" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Frame>
+
+            <ScrollView Grid.Row="1">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Hechizo:"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Spell}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Tipo:"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Type}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Efecto:"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Effect}"/>
+
+                </Grid>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

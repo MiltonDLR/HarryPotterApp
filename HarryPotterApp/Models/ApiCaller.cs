@@ -73,5 +73,28 @@ namespace HarryPotterApp.Models
                     };
             }
         }
+
+        public static async Task<ApiResponse> GetHouse()
+        {
+            string url = "https://www.potterapi.com/v1/houses/?key=" + AuthID;
+            using (var client = new HttpClient())
+            {
+                //if (!string.IsNullOrWhiteSpace(AuthID))
+                //    url += $"&appid={AuthID}";
+
+                var request = await client.GetAsync(url);
+                if (request.IsSuccessStatusCode)
+                    return new ApiResponse
+                    {
+                        Response = await request.Content.ReadAsStringAsync()
+                    };
+                else
+                    return new ApiResponse
+                    {
+                        ErrorMessage = request.ReasonPhrase
+                    };
+            }
+        }
+
     }
 }

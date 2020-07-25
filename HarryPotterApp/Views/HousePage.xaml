@@ -2,25 +2,101 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             ControlTemplate="{StaticResource Cssbackground}"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              mc:Ignorable="d"
-             x:Class="HarryPotterApp.Views.HousePage">
+             x:Class="HarryPotterApp.Views.HousePage"
+             Title="Datos de la casa">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate
+                x:Key="Cssbackground">
+                <Grid>
+                    <magic:GradientView VerticalOptions="FillAndExpand">
+                        <magic:GradientView.GradientSource>
+                            <magic:CssGradientSource>
+                                <x:String>
+                                    <![CDATA[linear-gradient(0deg, rgb(94,89,4),rgb(253,236,19))]]>
+                                </x:String>
+                            </magic:CssGradientSource>
+                        </magic:GradientView.GradientSource>
+                    </magic:GradientView>
+                    <ContentPresenter/>
+                </Grid>
+            </ControlTemplate>
+            <Style Class="Personajes" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="Caption"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Label Text="Nombre:"/>
-                <Label Text="Gryffindor"/>
-                <Label Text="Mascota:"/>
-                <Label Text="lion"/>
-                <Label Text="headOfHouse:"/>
-                <Label Text="Minerva McGonagall"/>
-                <Label Text="houseGhost:"/>
-                <Label Text="Nearly Headless Nick"/>
-                <Label Text="founder:"/>
-                <Label Text="Goderic Gryffindor"/>
-                <Label Text="school:"/>
-                <Label Text="Hogwarts School of Witchcraft and Wizardry"/>
-            </StackLayout>
-        </ScrollView>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0">
+                <Label Text="{Binding Name}" FontSize="Subtitle" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Frame>
+            
+            <ScrollView Grid.Row="1">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Nombre:"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Mascota:"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Mascot}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Director de la casa:"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding HeadOfHouse}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="Fantasma de la casa:"/>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding HouseGhost}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="Fundador:"/>
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding Founder}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="Escuela:"/>
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding School}"/>
+                    
+                    <Label Grid.Row="6" Grid.Column="0" Text="Valores:"/>
+                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding Values}"/>
+
+                    <Label Grid.Row="7" Grid.Column="0" Text="Colores:"/>
+                    <Label Grid.Row="7" Grid.Column="1" Text="{Binding Colors}"/>
+                    
+                </Grid>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

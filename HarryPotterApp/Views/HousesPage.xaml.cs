@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HarryPotterApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace HarryPotterApp.Views
         public HousesPage()
         {
             InitializeComponent();
+        }
+
+        async void OnItemSelected(object sender, EventArgs args)
+        {
+            var layout = (BindableObject)sender;
+            var item = (House)layout.BindingContext;
+            await Navigation.PushAsync(new HousePage(item));
         }
     }
 }

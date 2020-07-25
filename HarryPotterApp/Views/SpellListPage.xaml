@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HarryPotterApp.Views.SpellListPage"
-             xmlns:viewModel="clr-namespace:HarryPotterApp.ViewModels">
+             xmlns:viewModel="clr-namespace:HarryPotterApp.ViewModels"
+             Title="Hechizos">
     <ContentPage.BindingContext>
         <viewModel:SpellViewModel/>
     </ContentPage.BindingContext>

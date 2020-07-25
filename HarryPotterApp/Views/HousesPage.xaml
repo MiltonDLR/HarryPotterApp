@@ -4,33 +4,60 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HarryPotterApp.Views.HousesPage">
+             x:Class="HarryPotterApp.Views.HousesPage"
+             xmlns:viewModels="clr-namespace:HarryPotterApp.ViewModels"
+             Title="Casas">
+    <ContentPage.BindingContext>
+        <viewModels:HouseViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style Class="SBar" TargetType="SearchBar">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="#e6d7bd"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="CancelButtonColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="FontAttributes" Value="Italic"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style Class="Texto" TargetType="Label">
+                <Setter Property="TextColor" Value="#222222"></Setter>
+                <Setter Property="FontSize" Value="Default"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <Grid Padding="0" BackgroundColor="Transparent" RowSpacing="25" ColumnSpacing="25" VerticalOptions="Center" HorizontalOptions="Center">
+        <ScrollView>
+            <StackLayout>
 
-            <!--Definicion de Filas y Columnas-->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="150"/>
-            </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="150"/>
-            </Grid.ColumnDefinitions>
+                <CollectionView x:Name="HousesView" ItemsSource="{Binding Houses}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#732300" Padding="5">
+                                <StackLayout Spacing="0" BackgroundColor="#fffff0" Orientation="Vertical" VerticalOptions="Center">
+                                    <Label Text="{Binding name}" StyleClass="Texto" FontAttributes="Bold"/>
+                                    <Label Text="{Binding headOfHouse}" StyleClass="Texto"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
 
-            <!-- Boton a Sorting Hat (Sorteo de Sombrero) -->
-            <Button Grid.Row="0" Grid.Column="0" CornerRadius="10" Text="Logo de Casa G" BackgroundColor="Red" />
+                </CollectionView>
 
-            <!-- Boton a Characters (Personajes) -->
-            <Button Grid.Row="0" Grid.Column="1" CornerRadius="10" Text="Logo de Casa S" BackgroundColor="Green"/>
 
-            <!-- Boton de Casas -->
-            <Button Grid.Row="1" Grid.Column="0" CornerRadius="10" Text="Logo de Casa H" BackgroundColor="Yellow"/>
 
-            <!-- Boton de Hechizos -->
-            <Button Grid.Row="1" Grid.Column="1" CornerRadius="10" Text="Logo de Casa R" BackgroundColor="Blue"/>
-
-        </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
